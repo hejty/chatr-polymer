@@ -25,48 +25,49 @@
     <!-- endbuild-->
 </head>
 
-<body unresolved fullbleed>
+<body unresolved fullbleed layout vertical>
 
-    <header>
-
-        <div flex>
-            <chatr-logo></chatr-logo>
-        </div>
-
-        <div>
-            <core-icon icon="account-circle"></core-icon>
-            <chatr-user></chatr-user>
-        </div>
-
-    </header>
-
-    <core-scaffold>
-
-        <core-header-panel navigation flex>
-
+    <core-drawer-panel>
+        <core-header-panel drawer>
             <core-toolbar>
-                <core-dropdown></core-dropdown>
+                <div class="top">
+                    <a href="#" class="logo" flex>
+                        <chatr-logo></chatr-logo>
+                    </a>
+                </div>
             </core-toolbar>
-
-            <core-menu>
+            <core-toolbar>
+                <div class="middle">
+                    <core-dropdown-menu></core-dropdown-menu>
+                </div>
+            </core-toolbar>
+            <div class="content">
+                <chatr-tv-channel-search></chatr-tv-channel-search>
                 <chatr-tv-channels-list></chatr-tv-channels-list>
-            </core-menu>
-
+            </div>
         </core-header-panel>
 
-        <div tool layout horizontal flex>
-            <chatr-tv-channel></chatr-tv-channel>
-        </div>
-
-        <div flex>
-            <chatr-messages></chatr-messages>
-        </div>
-
-        <div>
-            <chatr-message-form></chatr-message-form>
-        </div>
-
-    </core-scaffold>
+        <core-header-panel main>
+            <core-toolbar>
+                <span flex></span>
+                <div class="top">
+                    <core-icon icon="account-circle"></core-icon>
+                    <chatr-user></chatr-user>
+                </div>
+                </core-toolbar>
+                <core-toolbar>
+                    <div class="middle">
+                        <chatr-tv-channel-logo></chatr-tv-channel-logo>
+                        <chatr-tv-channel-name></chatr-tv-channel-name>
+                    </div>
+                </core-toolbar>
+            </core-toolbar>
+            <div class="content">
+                <chatr-messages></chatr-messages>
+                <chatr-message-form></chatr-message-form>
+            </div>
+        </core-header-panel>
+    </core-drawer-panel>
 
     <!-- build:js scripts/app.js -->
     <script src="scripts/app.js"></script>
