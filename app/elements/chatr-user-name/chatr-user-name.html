@@ -1,20 +1,33 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="chatr-user-name" attributes="">
+<polymer-element name="chatr-user-name" attributes="name">
+
   <template>
+
     <style>
       :host {
-        display: block;
+        display: inline-block;
       }
     </style>
+
+    {{name}}
+
   </template>
+
   <script>
+
     (function () {
+      'use strict';
 
       Polymer({
-        // define element prototype here
+
+        ready: function() {
+          
+        }
+
       });
 
     })();
   </script>
+
 </polymer-element>

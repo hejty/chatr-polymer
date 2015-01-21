@@ -1,20 +1,73 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="chatr-user-avatar" attributes="">
+<polymer-element name="chatr-user-avatar" attributes="avatar">
+
   <template>
+
     <style>
       :host {
-        display: block;
+        display: inline-block;
+      }
+
+      .avatar,
+      .avatar img {
+        border-radius: 50%;
+        height: 48px;
+        margin-right: 15px;
+        position: relative;
+        width: 48px;
+      }
+
+      .avatar img {
+        margin-right: 0;
+      }
+
+      .avatar.fb:after,
+      .avatar.plus:after {
+        background: #3b5998;
+        border: 2px solid #1c1a2a;
+        border-radius: 50%;
+        bottom: -5px;
+        content: "f";
+        height: 16px;
+        font-size: 10px;
+        line-height: 16px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        width: 16px;
+      }
+
+      .avatar.plus:after {
+        background-color: #d13f2d;
+        content: "g+";
+        font-size: 8px;
       }
     </style>
+
+    <span class="avatar">
+      <img src="" alt="">
+    </span>
+
   </template>
+
   <script>
+
     (function () {
+      'use strict';
 
       Polymer({
-        // define element prototype here
+
+        avatar: 'http://placehold.it/48x48/',
+
+        ready: function() {
+
+        }
+
       });
 
     })();
+
   </script>
+
 </polymer-element>

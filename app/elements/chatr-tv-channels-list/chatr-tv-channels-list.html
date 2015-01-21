@@ -1,20 +1,32 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="chatr-tv-channels-list" attributes="">
+<polymer-element name="chatr-tv-channels-list" attributes="channels">
+
   <template>
+
     <style>
       :host {
         display: block;
       }
     </style>
+
+    <template repeat="{{channel, i in channels}}">
+      <chatr-tv-channel channel="{{channel}}"></chatr-tv-channel>
+    </template>
+
   </template>
+
   <script>
+
     (function () {
+      'use strict';
 
       Polymer({
-        // define element prototype here
+
       });
 
     })();
+
   </script>
+
 </polymer-element>
