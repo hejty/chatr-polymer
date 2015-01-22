@@ -30,18 +30,18 @@
 
 <body unresolved fullbleed layout vertical>
 
-    <core-drawer-panel>
-        <core-header-panel drawer>
-            <core-toolbar>
-                <div class="top">
+    <core-drawer-panel drawerWidth="360px">
+        <core-header-panel mode="seamed" drawer>
+            <core-toolbar layout horizontal center>
+                <div>
                     <a href="#" class="logo" flex>
                         <chatr-logo></chatr-logo>
                     </a>
                 </div>
             </core-toolbar>
-            <core-toolbar>
-                <div class="middle">
-                    <core-dropdown-menu></core-dropdown-menu>
+            <core-toolbar relative>
+                <div>
+                    <core-dropdown-menu fit></core-dropdown-menu>
                 </div>
             </core-toolbar>
             <div class="content">
@@ -50,20 +50,19 @@
             </div>
         </core-header-panel>
 
-        <core-header-panel main>
-            <core-toolbar>
+        <core-header-panel mode="seamed" main>
+            <core-toolbar layout horizontal center end-justified>
                 <span flex></span>
-                <div class="top">
+                <div layout horizontal center>
                     <core-icon icon="account-circle"></core-icon>
                     <chatr-user></chatr-user>
                 </div>
-                </core-toolbar>
-                <core-toolbar>
-                    <div class="middle">
-                        <chatr-tv-channel-logo></chatr-tv-channel-logo>
-                        <chatr-tv-channel-name></chatr-tv-channel-name>
-                    </div>
-                </core-toolbar>
+            </core-toolbar>
+            <core-toolbar>
+                <div>
+                    <chatr-tv-channel-logo></chatr-tv-channel-logo>
+                    <chatr-tv-channel-name></chatr-tv-channel-name>
+                </div>
             </core-toolbar>
             <div class="content">
                 <chatr-messages></chatr-messages>
