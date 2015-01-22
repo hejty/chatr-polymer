@@ -1,3 +1,31 @@
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+[drawer] {
+    background-color: #fafafa;
+}
+
+[main] {
+    background-color: #fff;
+}
+
+core-toolbar:nth-of-type(1) {
+    background-color: #1c1a2a;
+    height: 4em;
+}
+
+core-toolbar:nth-of-type(2) {
+    background-color: #f7f8fa;
+    border-bottom: 1px solid #e5e5e6;
+    height: 3em;
+}
+
+core-dropdown-menu {
+    background-color: #f7f8fa;
+    border-right: 1px solid #e5e5e6;
+}
+
+core-icon[icon="account-circle"] {
+    color: #f7f8fa;
 }
