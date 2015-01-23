@@ -1,20 +1,89 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html"/>
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html"/>
+<link rel="import" href="../../bower_components/core-icons/communication-icons.html"/>
 
 <polymer-element name="chatr-message-form" attributes="">
+
   <template>
+
     <style>
       :host {
+        border-top: 1px solid #e5e5e6;
         display: block;
+        font-size: 1em;
+        height: 3em;
+        padding: 0 1em;
+      }
+
+      paper-input {
+        width: 80%;
+      }
+
+      .chatr-paper-input /deep/ ::-webkit-input-placeholder {
+        color: #19b99a;
+      }
+
+      .chatr-paper-input /deep/ ::-moz-placeholder {
+        color: #19b99a;
+      }
+
+      .chatr-paper-input /deep/ :-ms-input-placeholder {
+        color: #19b99a;
+      }
+
+      .chatr-paper-input /deep/ .label-text,
+      .chatr-paper-input /deep/ .error {
+        color: #19b99a;
+      }
+
+      .chatr-paper-input /deep/ .unfocused-underline {
+        background-color: #19b99a;
+      }
+
+      .chatr-paper-input[focused] /deep/ .floated-label .label-text {
+        color: #0f9d58;
+      }
+
+      .chatr-paper-input /deep/ .focused-underline {
+        background-color: #0f9d58;
+      }
+
+      .chatr-paper-input.invalid /deep/ .floated-label .label-text,
+      .chatr-paper-input /deep/ .error {
+        color: #f06292;
+      }
+
+      .chatr-paper-input.invalid /deep/ .focused-underline {
+        background-color: #f06292;
+      }
+
+      .chatr-paper-input {
+        color: #1a237e;
+      }
+
+      paper-fab.chatr-fab {
+        background-color: #19b99a;
+        float: right;
       }
     </style>
+
+    <paper-input label="Message" class="chatr-paper-input"></paper-input>
+    <paper-fab icon="communication:chat" title="" class="chatr-fab"></paper-fab>
+
   </template>
+
   <script>
+
     (function () {
+      'use strict';
 
       Polymer({
-        // define element prototype here
+
       });
 
     })();
+
   </script>
+
 </polymer-element>

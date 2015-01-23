@@ -46,7 +46,7 @@
     </style>
 
     <span class="avatar">
-      <img src="" alt="">
+      <img src="{{avatar}}" alt="">
     </span>
 
   </template>
@@ -58,10 +58,8 @@
 
       Polymer({
 
-        avatar: 'http://placehold.it/48x48/',
-
         ready: function() {
-
+          this.avatar = 'http://placehold.it/48x48/';
         }
 
       });
