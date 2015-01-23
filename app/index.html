@@ -22,6 +22,8 @@
     <link rel="import" href="bower_components/core-toolbar/core-toolbar.html"/>
     <link rel="import" href="bower_components/core-dropdown-menu/core-dropdown-menu.html"/>
     <link rel="import" href="bower_components/core-icons/core-icons.html"/>
+    <link rel="import" href="bower_components/core-icons/social-icons.html"/>
+    <link rel="import" href="bower_components/paper-elements/paper-elements.html"/>
 
     <!-- build:vulcanized elements/elements.vulcanized.html -->
     <link rel="import" href="elements/elements.html">
@@ -54,19 +56,34 @@
             <core-toolbar layout horizontal center end-justified>
                 <span flex></span>
                 <div layout horizontal center>
-                    <core-icon icon="account-circle"></core-icon>
                     <chatr-user></chatr-user>
+                    <paper-menu-button>
+                        <paper-icon-button icon="social:notifications"></paper-icon-button>
+                        <paper-icon-button icon="settings-power"></paper-icon-button>
+                    </paper-menu-button>
                 </div>
             </core-toolbar>
             <core-toolbar>
-                <div>
+                <div flex>
                     <chatr-tv-channel-logo></chatr-tv-channel-logo>
                     <chatr-tv-channel-name></chatr-tv-channel-name>
                 </div>
+                <div>
+                    <paper-radio-group selected="chatr-chat">
+                        <paper-radio-button name="chatr-chat" label="Chat"></paper-radio-button>
+                        <paper-radio-button name="chatr-questions" label="Questions"></paper-radio-button>
+                    </paper-radio-group>
+                </div>
             </core-toolbar>
             <div class="content">
-                <chatr-messages></chatr-messages>
-                <chatr-message-form></chatr-message-form>
+                <div fit layout vertical>
+                    <div flex>
+                        <chatr-messages></chatr-messages>
+                    </div>
+                    <div>
+                        <chatr-message-form></chatr-message-form>
+                    </div>
+                </div>
             </div>
         </core-header-panel>
     </core-drawer-panel>
