@@ -26,6 +26,14 @@ core-dropdown-menu {
     border-right: 1px solid #e5e5e6;
 }
 
-core-icon[icon="account-circle"] {
+paper-icon-button {
     color: #f7f8fa;
+}
+
+paper-radio-button::shadow #ink[checked] {
+    color: #19b99a;
+}
+
+paper-radio-button::shadow #ink {
+    color: #19b99a;
 }
