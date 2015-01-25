@@ -37,3 +37,7 @@ paper-radio-button::shadow #ink[checked] {
 paper-radio-button::shadow #ink {
     color: #19b99a;
 }
+
+core-drawer-panel:not([narrow]) #hamburger {
+    display: none;
+}

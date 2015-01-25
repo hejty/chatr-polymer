@@ -2,8 +2,11 @@
   'use strict';
 
   document.addEventListener('polymer-ready', function() {
-    // Perform some behaviour
-    console.log('Polymer is ready to rock!');
+    var hamburger = document.getElementById('hamburger');
+    var channelPanel = document.getElementById('channel-panel');
+    hamburger.addEventListener('click', function() {
+        channelPanel.togglePanel();
+    })
   });
 
 // wrap document so it plays nice with other libraries

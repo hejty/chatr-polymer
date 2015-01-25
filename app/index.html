@@ -32,7 +32,7 @@
 
 <body unresolved fullbleed layout vertical>
 
-    <core-drawer-panel drawerWidth="360px">
+    <core-drawer-panel drawerWidth="360px" id="channel-panel">
         <core-header-panel mode="seamed" drawer>
             <core-toolbar layout horizontal center>
                 <div>
@@ -54,7 +54,8 @@
 
         <core-header-panel mode="seamed" main>
             <core-toolbar layout horizontal center end-justified>
-                <span flex></span>
+                    <paper-icon-button id="hamburger" icon="menu"></paper-icon-button>
+                    <span flex></span>
                 <div layout horizontal center>
                     <chatr-user></chatr-user>
                     <paper-menu-button>
