@@ -1,0 +1,135 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html"/>
+<link rel="import" href="bower_components/core-header-panel/core-header-panel.html"/>
+<link rel="import" href="bower_components/core-toolbar/core-toolbar.html"/>
+<link rel="import" href="bower_components/core-dropdown-menu/core-dropdown-menu.html"/>
+<link rel="import" href="bower_components/core-icons/core-icons.html"/>
+<link rel="import" href="bower_components/core-icons/social-icons.html"/>
+<link rel="import" href="bower_components/paper-elements/paper-elements.html"/>
+
+<polymer-element name="chatr-chat">
+
+  <template>
+
+    <style>
+      [drawer] {
+          background-color: #fafafa;
+      }
+
+      [main] {
+          background-color: #fff;
+      }
+
+      core-toolbar:nth-of-type(1) {
+          background-color: #1c1a2a;
+          height: 4em;
+      }
+
+      core-toolbar:nth-of-type(2) {
+          background-color: #f7f8fa;
+          border-bottom: 1px solid #e5e5e6;
+          height: 3em;
+      }
+
+      core-dropdown-menu {
+          background-color: #f7f8fa;
+          border-right: 1px solid #e5e5e6;
+      }
+
+      paper-icon-button {
+          color: #f7f8fa;
+      }
+
+      paper-radio-button::shadow #ink[checked] {
+          color: #19b99a;
+      }
+
+      paper-radio-button::shadow #ink {
+          color: #19b99a;
+      }
+
+      core-drawer-panel:not([narrow]) #hamburger {
+          display: none;
+      }
+    </style>
+
+    <core-drawer-panel drawerWidth="360px" id="drawerPanel">
+      <core-header-panel mode="seamed" drawer>
+          <core-toolbar layout horizontal center>
+              <div>
+                  <a href="#" class="logo" flex>
+                      <chatr-logo></chatr-logo>
+                  </a>
+              </div>
+          </core-toolbar>
+          <core-toolbar relative>
+              <div>
+                  <core-dropdown-menu fit></core-dropdown-menu>
+              </div>
+          </core-toolbar>
+          <div class="content">
+              <chatr-tv-channel-search></chatr-tv-channel-search>
+              <chatr-tv-channels-list></chatr-tv-channels-list>
+          </div>
+      </core-header-panel>
+
+      <core-header-panel mode="seamed" main>
+          <core-toolbar layout horizontal center end-justified>
+                  <paper-icon-button id="hamburger" icon="menu" on-tap="{{togglePanel}}"></paper-icon-button>
+                  <span flex></span>
+              <div layout horizontal center>
+                  <chatr-user></chatr-user>
+                  <paper-menu-button>
+                      <paper-icon-button icon="social:notifications"></paper-icon-button>
+                      <paper-icon-button icon="settings-power"></paper-icon-button>
+                  </paper-menu-button>
+              </div>
+          </core-toolbar>
+          <core-toolbar>
+              <div flex>
+                  <chatr-tv-channel-logo></chatr-tv-channel-logo>
+                  <chatr-tv-channel-name></chatr-tv-channel-name>
+              </div>
+              <div>
+                  <paper-radio-group selected="chatr-chat">
+                      <paper-radio-button name="chatr-chat" label="Chat"></paper-radio-button>
+                      <paper-radio-button name="chatr-questions" label="Questions"></paper-radio-button>
+                  </paper-radio-group>
+              </div>
+          </core-toolbar>
+          <div class="content">
+              <div fit layout vertical>
+                  <div flex>
+                      <chatr-messages></chatr-messages>
+                  </div>
+                  <div>
+                      <chatr-message-form></chatr-message-form>
+                  </div>
+              </div>
+          </div>
+      </core-header-panel>
+    </core-drawer-panel>
+
+  </template>
+
+  <script>
+
+    (function () {
+      'use strict';
+
+      Polymer({
+
+        ready: function() {
+
+        },
+
+        togglePanel: function() {
+          this.$.drawerPanel.togglePanel();
+        }
+
+      });
+
+    })();
+  </script>
+
+</polymer-element>
