@@ -1,4 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/firebase-element/firebase-element.html">
+<link rel="import" href="../chatr-tv-channel/chatr-tv-channel.html">
 
 <polymer-element name="chatr-tv-channels-list" attributes="channels">
 
@@ -10,8 +12,10 @@
       }
     </style>
 
-    <template repeat="{{channel, i in channels}}">
-      <chatr-tv-channel channel="{{channel}}"></chatr-tv-channel>
+    <firebase-element id="base" location="https://chatr-polymer.firebaseio.com/channels" data="{{channels}}" keys="{{keys}}" limit="20"></firebase-element>
+
+    <template repeat="{{key in keys}}">
+      <chatr-tv-channel listitem="{{key}}" name="{{channels[key].name}}" logo="{{channels[key].logo}}" country="{{channels[key].country}}" channel="{{channels[key].isSelected}}"></chatr-tv-channel>
     </template>
 
   </template>
@@ -22,6 +26,10 @@
       'use strict';
 
       Polymer({
+
+        ready: function() {
+
+        }
 
       });
 
