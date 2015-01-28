@@ -85,7 +85,9 @@
       'use strict';
 
       Polymer({
-        // define element prototype here
+        ready: function() {
+          this.listitem = parseInt(this.listitem);
+        }
       });
 
     })();
