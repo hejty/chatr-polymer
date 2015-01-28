@@ -1,0 +1,92 @@
+{
+    "channels" : {
+        "0" : {
+            "id" : 0,
+            "name" : "Markíza",
+            "country" : "Slovakia",
+            "logo" : "http://www.placehold.it/80x80/",
+            "isFavorite" : false,
+            "isSelected" : false
+        },
+        "1" : {
+            "id" : 1,
+            "name" : "Cool",
+            "country" : "Czech Republic",
+            "logo" : "http://www.placehold.it/80x80/",
+            "isFavorite" : true,
+            "isSelected" : true
+        },
+        "2" : {
+            "id" : 2,
+            "name" : "JOJ",
+            "country" : "Slovakia",
+            "logo" : "http://www.placehold.it/80x80/",
+            "isFavorite" : false,
+            "isSelected" : false
+        },
+        "3" : {
+            "id" : 3,
+            "name" : "JOJ Plus",
+            "country" : "Slovakia",
+            "logo" : "http://www.placehold.it/80x80/",
+            "isFavorite" : false,
+            "isSelected" : false
+        },
+        "4" : {
+            "id" : 4,
+            "name" : "Dajto",
+            "country" : "Slovakia",
+            "logo" : "http://www.placehold.it/80x80/",
+            "isFavorite" : false,
+            "isSelected" : false
+        },
+        "5" : {
+            "id" : 5,
+            "name" : "WAU",
+            "country" : "Slovakia",
+            "logo" : "http://www.placehold.it/80x80/",
+            "isFavorite" : false,
+            "isSelected" : false
+        },
+        "6" : {
+            "id" : 6,
+            "name" : "TA3",
+            "country" : "Slovakia",
+            "logo" : "http://www.placehold.it/80x80/",
+            "isFavorite" : false,
+            "isSelected" : false
+        },
+        "7" : {
+            "id" : 7,
+            "name" : "Doma",
+            "country" : "Slovakia",
+            "logo" : "http://www.placehold.it/80x80/",
+            "isFavorite" : false,
+            "isSelected" : false
+        },
+        "8" : {
+            "id" : 8,
+            "name" : "Musiq1",
+            "country" : "Slovakia",
+            "logo" : "http://www.placehold.it/80x80/",
+            "isFavorite" : false,
+            "isSelected" : false
+        },
+        "9" : {
+            "id" : 9,
+            "name" : "STV1",
+            "country" : "Slovakia",
+            "logo" : "http://www.placehold.it/80x80/",
+            "isFavorite" : false,
+            "isSelected" : false
+        },
+        "10" : {
+            "id" : 10,
+            "name" : "STV2",
+            "country" : "Slovakia",
+            "logo" : "http://www.placehold.it/80x80/",
+            "isFavorite" : false,
+            "isSelected" : false
+        }
+    }
+}
