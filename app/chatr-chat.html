@@ -3,6 +3,8 @@
 <link rel="import" href="bower_components/core-header-panel/core-header-panel.html"/>
 <link rel="import" href="bower_components/core-toolbar/core-toolbar.html"/>
 <link rel="import" href="bower_components/core-dropdown-menu/core-dropdown-menu.html"/>
+<link rel="import" href="bower_components/core-menu/core-menu.html"/>
+<link rel="import" href="bower_components/core-item/core-item.html"/>
 <link rel="import" href="bower_components/core-icons/core-icons.html"/>
 <link rel="import" href="bower_components/core-icons/social-icons.html"/>
 <link rel="import" href="bower_components/paper-elements/paper-elements.html"/>
@@ -51,6 +53,31 @@
       core-drawer-panel:not([narrow]) #hamburger {
           display: none;
       }
+
+      core-dropdown-menu {
+          box-sizing: border-box;
+          width: 100%;
+      }
+
+      core-dropdown-menu::shadow #label {
+        padding-left: 1em;
+      }
+
+      core-dropdown {
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+          min-width: 100%;
+      }
+
+      core-icon {
+        margin-right: 0.5em;
+      }
+
+      core-item {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+      }
     </style>
 
     <core-drawer-panel drawerWidth="360px" id="drawerPanel">
@@ -64,7 +91,14 @@
           </core-toolbar>
           <core-toolbar relative>
               <div>
-                  <core-dropdown-menu fit></core-dropdown-menu>
+                  <core-dropdown-menu label="Filter" fit>
+                      <core-dropdown class="dropdown">
+                          <core-menu>
+                              <core-item><core-icon icon="list"></core-icon> All </core-item>
+                              <core-item><core-icon icon="favorite"></core-icon> Favorite</core-item>
+                          </core-menu>
+                      </core-dropdown>
+                  </core-dropdown-menu>
               </div>
           </core-toolbar>
           <div class="content">
