@@ -1,6 +1,9 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../chatr-tv-channel-logo/chatr-tv-channel-logo.html">
+<link rel="import" href="../chatr-tv-channel-name/chatr-tv-channel-name.html">
+<link rel="import" href="../chatr-tv-channel-country/chatr-tv-channel-country.html">
 
-<polymer-element name="chatr-tv-channel" attributes="channel">
+<polymer-element name="chatr-tv-channel" attributes="channel listitem name logo country">
 
   <template>
 
@@ -28,17 +31,6 @@
         transition: background-color 0.3s;
       }
 
-      .channel:hover {
-        background-color: #f3f2f7;
-      }
-
-      .channel:active,
-      .channel .active {
-        background-color: #f3f2f7;
-        border-left: 3px solid #19b99a;
-        color: #19b99a;
-      }
-
       .channel span {
         flex: 1 24px;
       }
@@ -58,6 +50,7 @@
         -webkit-flex: 3;
         -ms-flex: 3;
         flex: 3;
+        margin-right: 1em;
       }
 
       .channel-info {
@@ -73,14 +66,14 @@
 
     <a href"#" class="channel">
       <span>
-        <p>{{num}}</p>
+        <p>{{listitem + 1}}</p>
       </span>
       <div class="channel-logo">
-        <chatr-tv-channel-logo logo=""><chatr-tv-channel-logo>
+        <chatr-tv-channel-logo logo="{{logo}}"><chatr-tv-channel-logo>
       </div>
       <div class="channel-info">
-        <h3><chatr-tv-channel-name name=""><chatr-tv-channel-name></h3>
-        <p><chatr-tv-channel-country country=""><chatr-tv-channel-country></p>
+        <h3><chatr-tv-channel-name name="{{name}}"><chatr-tv-channel-name></h3>
+        <p><chatr-tv-channel-country country="{{country}}"><chatr-tv-channel-country></p>
       </div>
     </a>
 
