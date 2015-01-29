@@ -2,91 +2,91 @@
     "channels" : {
         "0" : {
             "id" : 0,
-            "name" : "Markíza",
-            "country" : "Slovakia",
-            "logo" : "http://www.placehold.it/80x80/",
-            "isFavorite" : false,
-            "isSelected" : false
+            "name" : "Channel 1",
+            "logo" : "http://www.placehold.it/80x80/F6E87B/0D60A4/&text=TV1",
+            "country" : {
+                "id" : 0,
+                "name" : "Slovakia"
+            },
+            "favorite" : false,
+            "active" : false
         },
         "1" : {
             "id" : 1,
-            "name" : "Cool",
-            "country" : "Czech Republic",
-            "logo" : "http://www.placehold.it/80x80/",
-            "isFavorite" : true,
-            "isSelected" : true
+            "name" : "Channel 2",
+            "logo" : "http://www.placehold.it/80x80/8DC63B/FFFFFF/&text=TV2",
+            "country" : {
+                "id" : 1,
+                "name" : "Czech Republic"
+            },
+            "favorite" : true,
+            "active" : true
         },
         "2" : {
             "id" : 2,
-            "name" : "JOJ",
-            "country" : "Slovakia",
-            "logo" : "http://www.placehold.it/80x80/",
-            "isFavorite" : false,
-            "isSelected" : false
+            "name" : "Channel 3",
+            "logo" : "http://www.placehold.it/80x80/CD0E15/FFFFFF/&text=TV3",
+            "country" : {
+                "id" : 0,
+                "name" : "Slovakia"
+            },
+            "favorite" : false,
+            "active" : false
         },
         "3" : {
             "id" : 3,
-            "name" : "JOJ Plus",
-            "country" : "Slovakia",
-            "logo" : "http://www.placehold.it/80x80/",
-            "isFavorite" : false,
-            "isSelected" : false
+            "name" : "Channel 4",
+            "logo" : "http://www.placehold.it/80x80/FF0281/FFFFFF/&text=TV4",
+            "country" : {
+                "id" : 0,
+                "name" : "Slovakia"
+            },
+            "favorite" : false,
+            "active" : false
         },
         "4" : {
             "id" : 4,
-            "name" : "Dajto",
-            "country" : "Slovakia",
-            "logo" : "http://www.placehold.it/80x80/",
-            "isFavorite" : false,
-            "isSelected" : false
+            "name" : "Channel 5",
+            "logo" : "http://www.placehold.it/80x80/161616/FFFFFF/&text=TV5",
+            "country" : {
+                "id" : 0,
+                "name" : "Slovakia"
+            },
+            "favorite" : false,
+            "active" : false
         },
         "5" : {
             "id" : 5,
-            "name" : "WAU",
-            "country" : "Slovakia",
-            "logo" : "http://www.placehold.it/80x80/",
-            "isFavorite" : false,
-            "isSelected" : false
+            "name" : "Channel 6",
+            "logo" : "http://www.placehold.it/80x80/C4D371/7BC1D9/&text=TV6",
+            "country" : {
+                "id" : 0,
+                "name" : "Slovakia"
+            },
+            "favorite" : false,
+            "active" : false
         },
         "6" : {
             "id" : 6,
-            "name" : "TA3",
-            "country" : "Slovakia",
-            "logo" : "http://www.placehold.it/80x80/",
-            "isFavorite" : false,
-            "isSelected" : false
+            "name" : "Channel 7",
+            "logo" : "http://www.placehold.it/80x80/1F5394/CF2E4D/&text=TV7",
+            "country" : {
+                "id" : 0,
+                "name" : "Slovakia"
+            },
+            "favorite" : false,
+            "active" : false
         },
         "7" : {
             "id" : 7,
-            "name" : "Doma",
-            "country" : "Slovakia",
-            "logo" : "http://www.placehold.it/80x80/",
-            "isFavorite" : false,
-            "isSelected" : false
-        },
-        "8" : {
-            "id" : 8,
-            "name" : "Musiq1",
-            "country" : "Slovakia",
-            "logo" : "http://www.placehold.it/80x80/",
-            "isFavorite" : false,
-            "isSelected" : false
-        },
-        "9" : {
-            "id" : 9,
-            "name" : "STV1",
-            "country" : "Slovakia",
-            "logo" : "http://www.placehold.it/80x80/",
-            "isFavorite" : false,
-            "isSelected" : false
-        },
-        "10" : {
-            "id" : 10,
-            "name" : "STV2",
-            "country" : "Slovakia",
-            "logo" : "http://www.placehold.it/80x80/",
-            "isFavorite" : false,
-            "isSelected" : false
+            "name" : "Channel 8",
+            "logo" : "http://www.placehold.it/80x80/EA5C21/FFFFFF/&text=TV8",
+            "country" : {
+                "id" : 0,
+                "name" : "Czech Republic"
+            },
+            "favorite" : false,
+            "active" : false
         }
     }
 }
