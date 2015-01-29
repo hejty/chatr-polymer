@@ -10,12 +10,16 @@
       :host {
         display: block;
       }
+
+      chatr-tv-channel.active {
+        background-color: #fff;
+      }
     </style>
 
     <firebase-element id="base" location="https://chatr-polymer.firebaseio.com/channels" data="{{channels}}" keys="{{keys}}" limit="20"></firebase-element>
 
     <template repeat="{{key in keys}}">
-      <chatr-tv-channel listitem="{{key}}" name="{{channels[key].name}}" logo="{{channels[key].logo}}" country="{{channels[key].country}}" channel="{{channels[key].isSelected}}"></chatr-tv-channel>
+      <chatr-tv-channel listitem="{{key}}" name="{{channels[key].name}}" logo="{{channels[key].logo}}" country="{{channels[key].country}}" channel="{{channels[key].active}}" active="{{channels[key].active}}"></chatr-tv-channel>
     </template>
 
   </template>
