@@ -1,4 +1,5 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/firebase-element/firebase-login.html">
 <link rel="import" href="bower_components/font-roboto/roboto.html"/>
 <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html"/>
 <link rel="import" href="bower_components/core-header-panel/core-header-panel.html"/>
@@ -83,7 +84,21 @@
           text-overflow: ellipsis;
           white-space: nowrap;
       }
+
+      paper-menu-button {
+          margin-left: 1em;
+      }
+
+      paper-item {
+        color: white;
+      }
+
+      chatr-user::shadow chatr-user-name {
+        font-size: 0.7em;
+      }
     </style>
+
+    <firebase-login id="base" user="{{user}}" location="https://chatr-polymer.firebaseio.com/" provider="github" on-login="onLogin" on-error="onError"></firebase-login>
 
     <core-drawer-panel drawerWidth="360px" id="drawerPanel">
       <core-header-panel mode="seamed" drawer>
@@ -117,10 +132,13 @@
                   <paper-icon-button id="hamburger" icon="menu" on-tap="{{togglePanel}}"></paper-icon-button>
                   <span flex></span>
               <div layout horizontal center>
-                  <chatr-user></chatr-user>
+                  <template if="{{user}}">
+                      <chatr-user user="{{user.github.displayName}}" avatar="{{user.github.cachedUserProfile.avatar_url}}"></chatr-user>
+                  </template>
+                  <paper-item on-click="{{login}}" hidden?="{{user}}">Login</paper-item>
                   <paper-menu-button>
-                      <paper-icon-button icon="social:notifications"></paper-icon-button>
-                      <paper-icon-button icon="settings-power"></paper-icon-button>
+                      <paper-icon-button icon="social:notifications" hidden?="{{!user}}"></paper-icon-button>
+                      <paper-icon-button icon="settings-power" on-click="{{logout}}" hidden?="{{!user}}"></paper-icon-button>
                   </paper-menu-button>
               </div>
           </core-toolbar>
@@ -164,6 +182,14 @@
 
         togglePanel: function() {
           this.$.drawerPanel.togglePanel();
+        },
+
+        login: function() {
+          this.$.base.login();
+        },
+
+        logout: function() {
+          this.$.base.logout();
         }
 
       });
