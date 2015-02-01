@@ -11,6 +11,7 @@
 <link rel="import" href="bower_components/core-icons/social-icons.html"/>
 <link rel="import" href="bower_components/paper-elements/paper-elements.html"/>
 <link rel="import" href="bower_components/pvc-globals/pvc-globals.html"/>
+<link rel="import" href="bower_components/app-router/app-router.html"/>
 
 <polymer-element name="chatr-app">
 
@@ -92,6 +93,11 @@
 
       paper-item {
         color: white;
+        display: inline-block;
+      }
+
+      paper-item a {
+        text-decoration: none;
       }
 
       chatr-user::shadow chatr-user-name {
@@ -150,22 +156,22 @@
                   <chatr-tv-channel-logo></chatr-tv-channel-logo>
                   <chatr-tv-channel-name></chatr-tv-channel-name>
               </div>
-              <div>
-                  <paper-radio-group selected="chatr-chat">
-                      <paper-radio-button name="chatr-chat" label="Chat"></paper-radio-button>
-                      <paper-radio-button name="chatr-questions" label="Questions"></paper-radio-button>
-                  </paper-radio-group>
+              <div layout horizontal center>
+                  <core-selector selected="0">
+                      <paper-item>
+                          <a href="/#">Chat</a>
+                      </paper-item>
+                      <paper-item>
+                          <a href="/#/chatr-questions/">Questions</a>
+                      </paper-item>
+                  </core-selector>
               </div>
           </core-toolbar>
           <div class="content">
-              <div fit layout vertical>
-                  <div flex>
-                      <chatr-messages></chatr-messages>
-                  </div>
-                  <div>
-                      <chatr-message-form></chatr-message-form>
-                  </div>
-              </div>
+              <app-router>
+                  <app-route path="/" import="chatr-chat.html" element="chatr-chat"></app-route>
+                  <app-route path="/chatr-questions/" import="chatr-questions.html" element="chatr-questions"></app-route>
+              </app-router>
           </div>
       </core-header-panel>
     </core-drawer-panel>
