@@ -1,6 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="chatr-user-message" attributes="time text">
+<polymer-element name="chatr-user-message" attributes="fullname text time">
 
   <template>
 
@@ -17,8 +17,9 @@
         -webkit-border-bottom-left-radius: 0;
         -moz-border-radius-bottomleft: 0;
         border-bottom-left-radius: 0;
-        margin-right: 77px;
-        padding: 15px;
+        min-width: 15em;
+        line-height: 0.5em;
+        padding: 1em;
         position: relative;
       }
 
@@ -36,7 +37,7 @@
         color: #b4b5b8;
         font-size: 0.875em;
         right: 15px;
-        top: 10px;
+        top: 1em;
         position: absolute;
       }
 
@@ -87,7 +88,7 @@
 
     <div class="text">
       <span class="time">{{time}}</span>
-      <h3><chatr-user-name></chatr-user-name></h3>
+      <h3>{{fullname}}</h3>
       <p>{{text}}</p>
     </div>
 
@@ -103,7 +104,7 @@
       });
 
     })();
-    
+
   </script>
 
 </polymer-element>

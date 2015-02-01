@@ -19,7 +19,7 @@
     <div fit layout vertical>
       <div flex>
         <template repeat="{{key in keys}}">
-          <chatr-message message="{{messages[id]['user']}}"></chatr-message>
+          <chatr-message message="{{messages[key].message}}" time="{{messages[key].timestamp}}" fullname="{{messages[key].user.fullname}}" avatar="{{messages[key].user.avatar}}"></chatr-message>
         </template>
       </div>
       <div>

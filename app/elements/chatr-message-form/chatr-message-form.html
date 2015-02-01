@@ -1,4 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/firebase-element/firebase-login.html">
+<link rel="import" href="../../bower_components/pvc-globals/pvc-globals.html"/>
 <link rel="import" href="../../bower_components/paper-input/paper-input.html"/>
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html"/>
 <link rel="import" href="../../bower_components/core-icons/communication-icons.html"/>
@@ -68,8 +70,12 @@
       }
     </style>
 
-    <paper-input label="Message" class="chatr-paper-input"></paper-input>
-    <paper-fab icon="communication:chat" title="" class="chatr-fab"></paper-fab>
+    <firebase-element id="base" location="https://chatr-polymer.firebaseio.com/messages" data="{{messages}}" keys="{{keys}}"></firebase-element>
+
+    <pvc-globals values="{{globals}}"></pvc-globals>
+
+    <paper-input label="Message" class="chatr-paper-input" id="input"></paper-input>
+    <paper-fab icon="communication:chat" title="" class="chatr-fab" on-click="{{addMessage}}"></paper-fab>
 
   </template>
 
@@ -79,6 +85,26 @@
       'use strict';
 
       Polymer({
+
+        addMessage: function() {
+          if (!this.$.input.value.length) {
+            alert('Please write a message!');
+            return;
+          }
+
+          var message = this.$.base.push({
+            message: this.$.input.value,
+            user: {
+              uid: this.globals.currentUser.uid,
+              username: this.globals.currentUser.github.username,
+              fullname: this.globals.currentUser.github.displayName,
+              avatar: this.globals.currentUser.github.cachedUserProfile.avatar_url
+            },
+            timestamp: new Date().getTime()
+          });
+
+          this.$.input.value = '';
+        }
 
       });
 

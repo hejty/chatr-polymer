@@ -1,6 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="chatr-message" attributes="message">
+<polymer-element name="chatr-message" attributes="avatar fullname message time">
 
   <template>
 
@@ -26,8 +26,8 @@
     </style>
 
     <div class="message">
-      <chatr-user-avatar avatar="{{user}}"></chatr-user-avatar>
-      <chatr-user-message message="{{user}}"></chatr-user-name>
+      <chatr-user-avatar avatar="{{avatar}}"></chatr-user-avatar>
+      <chatr-user-message text="{{message}}" time="{{time}}" fullname="{{fullname}}"></chatr-user-message>
     </div>
 
   </template>
