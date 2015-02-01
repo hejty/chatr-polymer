@@ -10,6 +10,7 @@
 <link rel="import" href="bower_components/core-icons/core-icons.html"/>
 <link rel="import" href="bower_components/core-icons/social-icons.html"/>
 <link rel="import" href="bower_components/paper-elements/paper-elements.html"/>
+<link rel="import" href="bower_components/pvc-globals/pvc-globals.html"/>
 
 <polymer-element name="chatr-chat">
 
@@ -98,7 +99,9 @@
       }
     </style>
 
-    <firebase-login id="base" user="{{user}}" location="https://chatr-polymer.firebaseio.com/" provider="github" on-login="onLogin" on-error="onError"></firebase-login>
+    <firebase-login id="baseLogin" user="{{user}}" location="https://chatr-polymer.firebaseio.com/" provider="github" on-login="onLogin" on-error="onError"></firebase-login>
+
+    <pvc-globals values="{{globals}}"></pvc-globals>
 
     <core-drawer-panel drawerWidth="360px" id="drawerPanel">
       <core-header-panel mode="seamed" drawer>
@@ -185,11 +188,19 @@
         },
 
         login: function() {
-          this.$.base.login();
+          this.$.baseLogin.login();
         },
 
         logout: function() {
-          this.$.base.logout();
+          this.$.baseLogin.logout();
+        },
+
+        onLogin: function() {
+          this.globals.currentUser = this.user;
+        },
+
+        onError: function(err) {
+          console.log(err);
         }
 
       });
