@@ -2,7 +2,7 @@
 <link rel="import" href="../../bower_components/firebase-element/firebase-element.html">
 <link rel="import" href="../chatr-tv-channel/chatr-tv-channel.html">
 
-<polymer-element name="chatr-tv-channels-list" attributes="channels">
+<polymer-element name="chatr-tv-channels-list" attributes="channels" id="">
 
   <template>
 
@@ -12,14 +12,16 @@
       }
 
       chatr-tv-channel.active {
-        background-color: #fff;
+        background-color: #f3f2f7;
+        border-left: 3px solid #19b99a;
+        color: #19b99a;
       }
     </style>
 
     <firebase-element id="base" location="https://chatr-polymer.firebaseio.com/channels" data="{{channels}}" keys="{{keys}}" limitToFirst="20"></firebase-element>
 
     <template repeat="{{key in keys}}">
-      <chatr-tv-channel listitem="{{key}}" name="{{channels[key].name}}" logo="{{channels[key].logo}}" country="{{channels[key].country.name}}" channel="{{channels[key].active}}" active="{{channels[key].active}}"></chatr-tv-channel>
+      <chatr-tv-channel listitem="{{key}}" name="{{channels[key].name}}" logo="{{channels[key].logo}}" country="{{channels[key].country.name}}" channel="{{channels[key].active}}" active="{{channels[key].active}}" on-tap="{{toggleActive}}"></chatr-tv-channel>
     </template>
 
   </template>
@@ -33,6 +35,15 @@
 
         ready: function() {
 
+        },
+
+        toggleActive: function(event, detail, sender) {
+          var channel = this.shadowRoot.querySelectorAll('chatr-tv-channel');
+          for (var i=0; i<channel.length; i++) {
+            channel[i].classList.remove("active");
+          }
+          sender.classList.add('active');
+          this.fire('active-set');
         }
 
       });

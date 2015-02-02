@@ -68,7 +68,7 @@
       }
     </style>
 
-    <a href"#" class="channel" on-tap="{{toggleActive}}">
+    <a href"#" class="channel">
       <paper-ripple fit></paper-ripple>
       <span>
         <p>{{listitem + 1}}</p>
@@ -77,7 +77,7 @@
         <chatr-tv-channel-logo logo="{{logo}}"><chatr-tv-channel-logo>
       </div>
       <div class="channel-info">
-        <h3><chatr-tv-channel-name name="{{name}}" active="{{active}}"><chatr-tv-channel-name></h3>
+        <h3><chatr-tv-channel-name name="{{name}}"><chatr-tv-channel-name></h3>
         <p><chatr-tv-channel-country country="{{country}}"><chatr-tv-channel-country></p>
       </div>
     </a>
@@ -91,25 +91,8 @@
 
       Polymer({
 
-        active: false,
-
         ready: function() {
           this.listitem = parseInt(this.listitem);
-        },
-
-        toggleActive: function() {
-          if (!this.classList.contains('active')) {
-            this.className = 'active';
-            this.active = true;
-            this.fire('active-set');
-          } else {
-            this.className = '';
-            this.active = false;
-          }
-        },
-
-        activeChanged: function(channel) {
-          this.active = this.active;
         }
 
       });
