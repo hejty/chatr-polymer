@@ -13,7 +13,8 @@
     "font-roboto": "Polymer/font-roboto#~0.5.4",
     "firebase-element": "Polymer/firebase-element#~0.5.4",
     "pvc-globals": "Divshot/pvc-globals#~0.1.0",
-    "app-router": "~2.4.0"
+    "app-router": "~2.4.0",
+    "elapsed-time": "miztroh/elapsed-time#~0.0.6"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^2.0.0"

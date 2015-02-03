@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/elapsed-time/elapsed-time.html">
 
 <polymer-element name="chatr-user-message" attributes="fullname text time">
 
@@ -87,7 +88,7 @@
     </style>
 
     <div class="text">
-      <span class="time">{{time}}</span>
+      <span class="time"><elapsed-time date="{{time}}"></elapsed-time></span>
       <h3>{{fullname}}</h3>
       <p>{{text}}</p>
     </div>
