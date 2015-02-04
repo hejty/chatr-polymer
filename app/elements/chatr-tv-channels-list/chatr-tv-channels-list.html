@@ -1,5 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/firebase-element/firebase-element.html">
+<link rel="import" href="../../bower_components/firebase-list/firebase-list.html">
 <link rel="import" href="../chatr-tv-channel/chatr-tv-channel.html">
 
 <polymer-element name="chatr-tv-channels-list" attributes="channels" id="">
@@ -18,7 +18,7 @@
       }
     </style>
 
-    <firebase-element id="base" location="https://chatr-polymer.firebaseio.com/channels" data="{{channels}}" keys="{{keys}}" limitToFirst="20"></firebase-element>
+    <firebase-list id="base" childEvents location="https://chatr-polymer.firebaseio.com/channels" data="{{channels}}" keys="{{keys}}" limitToFirst="20"></firebase-list>
 
     <template repeat="{{key in keys}}">
       <chatr-tv-channel listitem="{{key}}" name="{{channels[key].name}}" logo="{{channels[key].logo}}" country="{{channels[key].country.name}}" channel="{{channels[key].active}}" active="{{channels[key].active}}" on-tap="{{toggleActive}}"></chatr-tv-channel>
