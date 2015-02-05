@@ -41,10 +41,13 @@
           var channel = this.shadowRoot.querySelectorAll('chatr-tv-channel');
           for (var i=0; i<channel.length; i++) {
             channel[i].classList.remove("active");
+            channel[i].classList.add(i);
+            this.channels[i].active = false;
           }
           sender.classList.add('active');
+          this.channels[sender.classList[0]].active = true;
           this.fire('active-set');
-        }
+      }
 
       });
 
