@@ -1,5 +1,6 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="bower_components/firebase-element/firebase-login.html">
+<link rel="import" href="bower_components/firebase-list/firebase-list.html">
 <link rel="import" href="bower_components/font-roboto/roboto.html"/>
 <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html"/>
 <link rel="import" href="bower_components/core-header-panel/core-header-panel.html"/>
@@ -19,7 +20,7 @@
 
     <style>
       :host {
-        font-family: RobotoDraft, Helvetica, Arial, sans-serif;
+          font-family: RobotoDraft, Helvetica, Arial, sans-serif;
       }
 
       [drawer] {
@@ -68,7 +69,7 @@
       }
 
       core-dropdown-menu::shadow #label {
-        padding-left: 1em;
+          padding-left: 1em;
       }
 
       core-dropdown {
@@ -78,7 +79,7 @@
       }
 
       core-icon {
-        margin-right: 0.5em;
+          margin-right: 0.5em;
       }
 
       core-item {
@@ -92,20 +93,25 @@
       }
 
       paper-item {
-        color: white;
-        display: inline-block;
+          color: white;
+          display: inline-block;
       }
 
       paper-item a {
-        text-decoration: none;
+          text-decoration: none;
       }
 
       chatr-user::shadow chatr-user-name {
-        font-size: 0.7em;
+          font-size: 0.7em;
+      }
+
+      chatr-tv-channel-logo {
+          transform: scale(0.5);
       }
     </style>
 
     <firebase-login id="baseLogin" user="{{user}}" location="https://chatr-polymer.firebaseio.com/" provider="github" on-login="{{onLogin}}" on-error="{{onError}}"></firebase-login>
+    <firebase-list id="baseList" location="https://chatr-polymer.firebaseio.com/channels" data="{{channels}}" keys="{{keys}}"></firebase-list>
 
     <pvc-globals values="{{globals}}"></pvc-globals>
 
@@ -152,9 +158,13 @@
               </div>
           </core-toolbar>
           <core-toolbar>
-              <div flex>
-                  <chatr-tv-channel-logo></chatr-tv-channel-logo>
-                  <chatr-tv-channel-name></chatr-tv-channel-name>
+              <div flex layout horizontal center>
+                  <template repeat="{{key in keys}}">
+                      <template if="{{channels[key].active == true}}">
+                          <chatr-tv-channel-logo logo="{{channels[key].logo}}"></chatr-tv-channel-logo>
+                          <chatr-tv-channel-name name="{{channels[key].name}}"></chatr-tv-channel-name>
+                      </template>
+                  </template>
               </div>
               <div layout horizontal center>
                   <core-selector selected="0">
