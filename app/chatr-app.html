@@ -110,7 +110,7 @@
       }
     </style>
 
-    <firebase-login id="baseLogin" user="{{user}}" location="https://chatr-polymer.firebaseio.com/" provider="github" on-login="{{onLogin}}" on-error="{{onError}}"></firebase-login>
+    <firebase-login id="baseLogin" user="{{user}}" location="https://chatr-polymer.firebaseio.com/" provider="github" statusKnown="{{statusKnown}}" on-login="{{onLogin}}" on-error="{{onError}}"></firebase-login>
     <firebase-list id="baseList" location="https://chatr-polymer.firebaseio.com/channels" data="{{channels}}" keys="{{keys}}"></firebase-list>
 
     <pvc-globals values="{{globals}}"></pvc-globals>
@@ -213,6 +213,9 @@
 
         onLogin: function() {
           this.globals.currentUser = this.user;
+          if (this.statusKnown) {
+            this.globals.ownClass = "own";
+          }
         },
 
         onError: function(err) {

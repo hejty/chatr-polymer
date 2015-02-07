@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/pvc-globals/pvc-globals.html"/>
 
 <polymer-element name="chatr-message" attributes="avatar fullname message time">
 
@@ -23,9 +24,17 @@
         -ms-flex-pack: start;
         justify-content: flex-start;
       }
+
+      :host.own {
+        -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+      }
     </style>
 
-    <div class="message">
+    <pvc-globals values="{{globals}}"></pvc-globals>
+
+    <div class="message" id="mess" layout horizontal>
       <chatr-user-avatar avatar="{{avatar}}"></chatr-user-avatar>
       <chatr-user-message text="{{message}}" time="{{time}}" fullname="{{fullname}}"></chatr-user-message>
     </div>
@@ -40,7 +49,10 @@
     Polymer({
 
       ready: function() {
-
+        if (this.globals.ownClass != undefined) {
+          this.$.mess.classList.add(this.globals.ownClass);
+          this.$.mess.setAttribute("reverse", true);
+        }
       }
 
     });
