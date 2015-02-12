@@ -17,7 +17,14 @@
     <pvc-globals values="{{globals}}"></pvc-globals>
 
     <div fit layout vertical>
-
+      <div flex self-end?="{{globals.ownClass}}">
+        <template repeat="{{key in keys}}">
+          <chatr-question question="{{question[key].question}}" time="{{question[key].timestamp}}" fullname="{{question[key].user.fullname}}" avatar="{{question[key].user.avatar}}"></chatr-question>
+        </template>
+      </div>
+      <div>
+        <chatr-question-form></chatr-question-form>
+      </div>
     </div>
 
   </template>

@@ -1,0 +1,115 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/firebase-element/firebase-login.html">
+<link rel="import" href="../../bower_components/pvc-globals/pvc-globals.html"/>
+<link rel="import" href="../../bower_components/paper-input/paper-input.html"/>
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html"/>
+<link rel="import" href="../../bower_components/core-icons/communication-icons.html"/>
+
+<polymer-element name="chatr-question-form" attributes="">
+
+  <template>
+
+    <style>
+      :host {
+        border-top: 1px solid #e5e5e6;
+        display: block;
+        font-size: 1em;
+        height: 3em;
+        padding: 0 1em;
+      }
+
+      paper-input {
+        width: 80%;
+      }
+
+      .chatr-paper-input /deep/ ::-webkit-input-placeholder {
+        color: #7986cb;
+      }
+
+      .chatr-paper-input /deep/ ::-moz-placeholder {
+        color: #7986cb;
+      }
+
+      .chatr-paper-input /deep/ :-ms-input-placeholder {
+        color: #7986cb;
+      }
+
+      .chatr-paper-input /deep/ .label-text,
+      .chatr-paper-input /deep/ .error {
+        color: #7986cb;
+      }
+
+      .chatr-paper-input /deep/ .unfocused-underline {
+        background-color: #7986cb;
+      }
+
+      .chatr-paper-input[focused] /deep/ .floated-label .label-text {
+        color: #7986cb;
+      }
+
+      .chatr-paper-input /deep/ .focused-underline {
+        background-color: #7986cb;
+      }
+
+      .chatr-paper-input.invalid /deep/ .floated-label .label-text,
+      .chatr-paper-input /deep/ .error {
+        color: #f06292;
+      }
+
+      .chatr-paper-input.invalid /deep/ .focused-underline {
+        background-color: #f06292;
+      }
+
+      .chatr-paper-input {
+        color: #7986cb;
+      }
+
+      paper-fab.chatr-fab {
+        background-color: #7986cb;
+        float: right;
+      }
+    </style>
+
+    <firebase-element id="base" location="https://chatr-polymer.firebaseio.com/questions" data="{{questions}}" keys="{{keys}}"></firebase-element>
+
+    <pvc-globals values="{{globals}}"></pvc-globals>
+
+    <paper-input label="Question" class="chatr-paper-input" id="input"></paper-input>
+    <paper-fab icon="question-answer" title="" class="chatr-fab" on-click="{{addQuestion}}"></paper-fab>
+
+  </template>
+
+  <script>
+
+    (function () {
+      'use strict';
+
+      Polymer({
+
+        addQuestion: function() {
+          if (!this.$.input.value.length) {
+            alert('Please write a question!');
+            return;
+          }
+
+          var question = this.$.base.push({
+            question: this.$.input.value,
+            user: {
+              uid: this.globals.currentUser.uid,
+              username: this.globals.currentUser.github.username,
+              fullname: this.globals.currentUser.github.displayName,
+              avatar: this.globals.currentUser.github.cachedUserProfile.avatar_url
+            },
+            timestamp: new Date().getTime()
+          });
+
+          this.$.input.value = '';
+        }
+
+      });
+
+    })();
+
+  </script>
+
+</polymer-element>
