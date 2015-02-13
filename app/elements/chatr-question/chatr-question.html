@@ -1,6 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/pvc-globals/pvc-globals.html"/>
 
-<polymer-element name="chatr-question" attributes="question">
+<polymer-element name="chatr-question" attributes="fullname question time">
 
   <template>
 
@@ -116,10 +117,12 @@
       }
     </style>
 
+    <pvc-globals values="{{globals}}"></pvc-globals>
+
     <div class="question">
       <div class="text">
         <h3>
-          <chatr-user-name></chatr-user-name>
+          <chatr-user-name name="{{fullname}}"></chatr-user-name>
           <small>asks</small>
         </h3>
         <p>{{question}}</p>
