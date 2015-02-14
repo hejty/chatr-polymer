@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/pvc-globals/pvc-globals.html"/>
+<link rel="import" href="../../bower_components/elapsed-time/elapsed-time.html">
 
 <polymer-element name="chatr-question" attributes="fullname question time">
 
@@ -15,11 +16,6 @@
         background-color: #edeef2;
         color: #514b66;
         padding: 2em;
-      }
-
-      .question.own {
-        background-color: #2f2b48;
-        color: white;
       }
 
       .question .text p {
@@ -42,11 +38,6 @@
         color: #b4b5b8;
         display: block;
         font-size: 0.875em;
-        padding-top: 1em;
-      }
-
-      .question.own .time {
-        color: #6c6680;
       }
 
       chatr-user-name::shadow {
@@ -68,10 +59,10 @@
             <chatr-user-name name="{{fullname}}"></chatr-user-name>
             <small>asks</small>
           </h3>
+          <span class="time"><elapsed-time date="{{time}}"></elapsed-time></span>
           <p>{{question}}</p>
-          <span class="time"></span>
         </div>
-        <div layout horizontal center>
+        <div layout vertical center>
           <paper-button on-click="{{up}}">
             <core-icon icon="thumb-up"></core-icon>
             {{likes}}
