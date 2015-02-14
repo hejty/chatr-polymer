@@ -14,42 +14,27 @@
         border-bottom: 1px solid #e5e5e6;
         background-color: #edeef2;
         color: #514b66;
-        padding: 20px;
-
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-flow: row;
-        -ms-flex-flow: row;
-        flex-flow: row;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center;
+        padding: 2em;
       }
 
       .question.own {
         background-color: #2f2b48;
-        color: #fff;
-      }
-
-      .question .text {
-        -webkit-flex-grow: 3;
-        -ms-flex-positive: 3;
-        flex-grow: 3;
+        color: white;
       }
 
       .question .text p {
-        font-size: 22px;
+        font-size: 2em;
       }
 
       .question h3 {
-        color: #17b6a7;
-        font-size: 18px;
+        color: #7986cb;
+        font-size: 1.2em;
         font-weight: 600;
+        line-height: 0;
       }
 
       .question h3 small {
-        color: #9595a6;
+        color: #7986cb;
         font-size: 0.75em;
       }
 
@@ -57,89 +42,44 @@
         color: #b4b5b8;
         display: block;
         font-size: 0.875em;
-        padding-top: 10px;
+        padding-top: 1em;
       }
 
       .question.own .time {
         color: #6c6680;
       }
 
-      .question .functions {
-        display: inline-block;
-        margin-top: 15px;
+      chatr-user-name::shadow {
+        color: black;
       }
 
-      .function {
-        font-weight: 600;
-        margin-right: 10px;
+      core-icon {
+        margin-right: 0.5em;
       }
 
-      .function:hover {
-        text-decoration: underline;
-      }
-
-      .like {
-        color: #ee204d;
-      }
-
-      .dislike {
-        color: #7e769f;
-      }
-
-      .question .count {
-        font-size: 1.5em;
-        min-width: 15%;
-        text-align: center;
-        -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
-      }
-
-      .likes {
-        color: #ee204d;
-        font-weight: 600;
-        margin-right: 15px;
-      }
-
-      .likes .fa-thumbs-up {
-        font-weight: normal;
-        margin-right: 7px;
-      }
-
-      .dislikes {
-        color: #7e769f;
-        font-weight: 600;
-      }
-
-      .dislikes .fa-thumbs-down {
-        font-weight: normal;
-        margin-right: 7px;
-      }
     </style>
 
     <pvc-globals values="{{globals}}"></pvc-globals>
 
     <div class="question">
-      <div class="text">
-        <h3>
-          <chatr-user-name name="{{fullname}}"></chatr-user-name>
-          <small>asks</small>
-        </h3>
-        <p>{{question}}</p>
-        <span class="time"></span>
-        <div class="functions">
-          <a href="" class="function like">Like</a>
-          <a href="" class="function dislike">Dislike</a>
+      <div class="text" layout horizontal center>
+        <div flex>
+          <h3>
+            <chatr-user-name name="{{fullname}}"></chatr-user-name>
+            <small>asks</small>
+          </h3>
+          <p>{{question}}</p>
+          <span class="time"></span>
         </div>
-        <div class="count">
-          <span class="likes">
-            <i class="fa fa-thumbs-up"></i>
+        <div layout horizontal center>
+          <paper-button on-click="{{up}}">
+            <core-icon icon="thumb-up"></core-icon>
             {{likes}}
-          </span>
-          <span class="dislikes">
-            <i class="fa fa-thumbs-down"></i>
+          </paper-button>
+          <paper-button on-click="{{down}}">
+            <core-icon icon="thumb-down"></core-icon>
             {{dislikes}}
-          </span>
+          </paper-button>
         </div>
       </div>
     </div>
@@ -152,6 +92,11 @@
       'use strict';
 
       Polymer({
+
+        ready: function() {
+          this.likes = 0;
+          this.dislikes = 0;
+        }
 
       });
 
