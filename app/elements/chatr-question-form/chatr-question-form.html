@@ -1,5 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/firebase-element/firebase-login.html">
+<link rel="import" href="../../bower_components/firebase-element/firebase-element.html">
 <link rel="import" href="../../bower_components/pvc-globals/pvc-globals.html"/>
 <link rel="import" href="../../bower_components/paper-input/paper-input.html"/>
 <link rel="import" href="../../bower_components/paper-fab/paper-fab.html"/>
@@ -100,7 +100,9 @@
               fullname: this.globals.currentUser.github.displayName,
               avatar: this.globals.currentUser.github.cachedUserProfile.avatar_url
             },
-            timestamp: new Date().getTime()
+            timestamp: new Date().getTime(),
+            liked: 0,
+            disliked: 0
           });
 
           this.$.input.value = '';

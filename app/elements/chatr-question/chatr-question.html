@@ -2,7 +2,7 @@
 <link rel="import" href="../../bower_components/pvc-globals/pvc-globals.html"/>
 <link rel="import" href="../../bower_components/elapsed-time/elapsed-time.html">
 
-<polymer-element name="chatr-question" attributes="fullname question time">
+<polymer-element name="chatr-question" attributes="fullname question time liked disliked">
 
   <template>
 
@@ -65,11 +65,11 @@
         <div layout vertical center>
           <paper-button on-click="{{up}}">
             <core-icon icon="thumb-up"></core-icon>
-            {{likes}}
+            {{liked}}
           </paper-button>
           <paper-button on-click="{{down}}">
             <core-icon icon="thumb-down"></core-icon>
-            {{dislikes}}
+            {{disliked}}
           </paper-button>
         </div>
       </div>
@@ -85,8 +85,25 @@
       Polymer({
 
         ready: function() {
-          this.likes = 0;
-          this.dislikes = 0;
+
+        },
+
+        up: function() {
+          this.liked++;
+          if (this.disliked < 0) {
+            this.disliked++;
+          } else {
+            return;
+          }
+        },
+
+        down: function() {
+          this.disliked--;
+          if (this.liked > 0) {
+            this.liked--;
+          } else {
+            return;
+          }
         }
 
       });
