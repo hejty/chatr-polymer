@@ -1,5 +1,5 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
-<link rel="import" href="bower_components/firebase-element/firebase-login.html">
+<link rel="import" href="bower_components/firebase-element/firebase-element.html">
 <link rel="import" href="bower_components/pvc-globals/pvc-globals.html"/>
 
 <polymer-element name="chatr-questions" attributes="">
@@ -19,7 +19,7 @@
     <div fit layout vertical>
       <div flex>
         <template repeat="{{key in keys}}">
-          <chatr-question question="{{questions[key].question}}" time="{{questions[key].timestamp}}" fullname="{{questions[key].user.fullname}}" liked="{{questions[key].liked}}" disliked="{{questions[key].disliked}}"></chatr-question>
+          <chatr-question question="{{questions[key].question}}" time="{{questions[key].timestamp}}" fullname="{{questions[key].user.fullname}}" liked="{{questions[key].liked}}" disliked="{{questions[key].disliked}}" on-data-change="{{dataChange}}" log></chatr-question>
         </template>
       </div>
       <div>
@@ -34,7 +34,12 @@
     (function () {
 
       Polymer({
-        // define element prototype here
+
+        dataChange: function(event) {
+          console.log('Data change!')
+          console.log('Change: ', event.detail.name, ':', event.detail.value);
+        }
+
       });
 
     })();
