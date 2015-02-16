@@ -95,6 +95,7 @@
           } else {
             return;
           }
+          this.fire("like-added");
         },
 
         down: function() {
@@ -104,6 +105,7 @@
           } else {
             return;
           }
+          this.fire("dislike-added");
         }
 
       });

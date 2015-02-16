@@ -12,14 +12,14 @@
       }
     </style>
 
-    <firebase-element id="base" location="https://chatr-polymer.firebaseio.com/questions" data="{{questions}}" keys="{{keys}}"></firebase-element>
+    <firebase-element id="base" location="https://chatr-polymer.firebaseio.com/questions" data="{{questions}}" keys="{{keys}}" on-data-change="{{dataChanged}}" log></firebase-element>
 
     <pvc-globals values="{{globals}}"></pvc-globals>
 
     <div fit layout vertical>
       <div flex>
         <template repeat="{{key in keys}}">
-          <chatr-question question="{{questions[key].question}}" time="{{questions[key].timestamp}}" fullname="{{questions[key].user.fullname}}" liked="{{questions[key].liked}}" disliked="{{questions[key].disliked}}" on-data-change="{{dataChange}}" log></chatr-question>
+          <chatr-question question="{{questions[key].question}}" time="{{questions[key].timestamp}}" fullname="{{questions[key].user.fullname}}" liked="{{questions[key].liked}}" disliked="{{questions[key].disliked}}" on-like-added="{{save}}" on-dislike-added="{{save}}"></chatr-question>
         </template>
       </div>
       <div>
@@ -35,9 +35,12 @@
 
       Polymer({
 
-        dataChange: function(event) {
-          console.log('Data change!')
-          console.log('Change: ', event.detail.name, ':', event.detail.value);
+        save: function() {
+          this.$.base.commit();
+        },
+
+        dataChanged: function() {
+
         }
 
       });
