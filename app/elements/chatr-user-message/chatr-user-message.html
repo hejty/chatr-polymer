@@ -11,62 +11,36 @@
       }
 
       .text {
-        background: #edeef2;
-        min-width: 15em;
+        background: #ECEFF1;
         line-height: 0.5em;
+        min-width: 15em;
         padding: 1em;
         position: relative;
       }
 
-      .text:before {
-        background: url("corner-1.png") 0 0 no-repeat;
-        bottom: 0;
-        content: "";
-        height: 15px;
-        left: -13px;
-        position: absolute;
-        width: 13px;
-      }
-
       .time {
-        color: #b4b5b8;
-        font-size: 0.875em;
-        right: 15px;
-        top: 1em;
-        position: absolute;
+        color: #CFD8DC;
+        font-size: 1em;
+        top: 2em;
       }
 
       h3 {
-        color: #17b6a7;
+        color: #00BFA5;
         font-size: 1em;
         font-weight: 600;
       }
 
       :host-context(.own) .text {
-        background-color: #2f2b48;
-        color: white;
+        background-color: #263238;
+        color: #FFFFFF;
         margin-left: 77px;
         margin-right: 0;
-      }
-
-      :host-context(.own) .text:after {
-        background: url("corner-2.png") 0 0 no-repeat;
-        bottom: 0;
-        content: "";
-        height: 16px;
-        position: absolute;
-        right: -13px;
-        width: 13px;
-      }
-
-      :host-context(.own) .text:before {
-        background: none;
       }
     </style>
 
     <div class="text">
-      <span class="time"><elapsed-time date="{{time}}"></elapsed-time></span>
       <h3>{{fullname}}</h3>
+      <span class="time"><elapsed-time date="{{time}}"></elapsed-time></span>
       <p>{{text}}</p>
     </div>
 

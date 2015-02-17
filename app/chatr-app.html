@@ -24,39 +24,39 @@
       }
 
       [drawer] {
-          background-color: #fafafa;
+          background-color: #ECEFF1;
       }
 
       [main] {
-          background-color: #fff;
+          background-color: #FFFFFF;
       }
 
       core-toolbar:nth-of-type(1) {
-          background-color: #1c1a2a;
+          background-color: #212121;
           height: 4em;
       }
 
       core-toolbar:nth-of-type(2) {
-          background-color: #f7f8fa;
-          border-bottom: 1px solid #e5e5e6;
+          background-color: #ECEFF1;
+          border-bottom: 1px solid #CFD8DC;
           height: 3em;
       }
 
       core-dropdown-menu {
-          background-color: #f7f8fa;
-          border-right: 1px solid #e5e5e6;
+          background-color: #ECEFF1;
+          border-right: 1px solid #CFD8DC;
       }
 
       paper-icon-button {
-          color: #f7f8fa;
+          color: #ECEFF1;
       }
 
       paper-radio-button::shadow #ink[checked] {
-          color: #19b99a;
+          color: #009688;
       }
 
       paper-radio-button::shadow #ink {
-          color: #19b99a;
+          color: #009688;
       }
 
       core-drawer-panel:not([narrow]) #hamburger {
@@ -73,7 +73,7 @@
       }
 
       core-dropdown {
-          border: 1px solid #ccc;
+          border: 1px solid #CFD8DC;
           box-sizing: border-box;
           min-width: 100%;
       }
@@ -93,7 +93,7 @@
       }
 
       paper-item {
-          color: white;
+          color: #FFFFFF;
           display: inline-block;
       }
 
@@ -103,11 +103,16 @@
 
       chatr-user::shadow chatr-user-name {
           font-size: 0.7em;
-          color: white;
+          color: #FFFFFF;
       }
 
       chatr-tv-channel-logo {
           transform: scale(0.5);
+      }
+
+      .logo {
+          color: #FFFFFF;
+          margin-left: 1em;
       }
     </style>
 
@@ -119,10 +124,8 @@
     <core-drawer-panel drawerWidth="360px" id="drawerPanel">
       <core-header-panel mode="seamed" drawer>
           <core-toolbar layout horizontal center>
-              <div>
-                  <a href="#" class="logo" flex>
-                      <chatr-logo></chatr-logo>
-                  </a>
+              <div class="logo" flex>
+                  <core-icon icon="communication:chat"></core-icon> CHATR
               </div>
           </core-toolbar>
           <core-toolbar relative>
