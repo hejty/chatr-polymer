@@ -2,7 +2,7 @@
 <link rel="import" href="../../bower_components/pvc-globals/pvc-globals.html"/>
 <link rel="import" href="../../bower_components/elapsed-time/elapsed-time.html">
 
-<polymer-element name="chatr-question" attributes="fullname question time liked disliked">
+<polymer-element name="chatr-question" attributes="fullname question time liked disliked key">
 
   <template>
 
@@ -89,23 +89,31 @@
         },
 
         up: function() {
+          if (localStorage['liked' + this.key] == 'true') return;
           this.liked++;
+
           if (this.disliked < 0) {
             this.disliked++;
           } else {
             return;
           }
-          this.fire("like-added");
+
+          this.fire('like-added');
+          localStorage['liked' + this.key] = 'true';
         },
 
         down: function() {
+          if (localStorage['disliked' + this.key] == 'true') return;
           this.disliked--;
+
           if (this.liked > 0) {
             this.liked--;
           } else {
             return;
           }
-          this.fire("dislike-added");
+
+          this.fire('dislike-added');
+          localStorage['disliked' + this.key] = 'true';
         }
 
       });
