@@ -1,10 +1,11 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
 <link rel="import" href="../../bower_components/paper-ripple/paper-ripple.html">
 <link rel="import" href="../chatr-tv-channel-logo/chatr-tv-channel-logo.html">
 <link rel="import" href="../chatr-tv-channel-name/chatr-tv-channel-name.html">
 <link rel="import" href="../chatr-tv-channel-country/chatr-tv-channel-country.html">
 
-<polymer-element name="chatr-tv-channel" attributes="channel listitem name logo country active">
+<polymer-element name="chatr-tv-channel" attributes="channel listitem name logo country active favorite">
 
   <template>
 
@@ -69,7 +70,6 @@
     </style>
 
     <a href"#" class="channel">
-      <paper-ripple fit></paper-ripple>
       <span>
         <p>{{listitem + 1}}</p>
       </span>
@@ -80,6 +80,7 @@
         <h3><chatr-tv-channel-name name="{{name}}"><chatr-tv-channel-name></h3>
         <p><chatr-tv-channel-country country="{{country}}"><chatr-tv-channel-country></p>
       </div>
+      <core-icon-button icon="favorite" id="favicon" on-tap="{{favoriteTapped}}"></core-icon-button>
     </a>
 
   </template>
@@ -93,6 +94,10 @@
 
         ready: function() {
           this.listitem = parseInt(this.listitem);
+        },
+
+        favoriteTapped: function() {
+          this.fire('favorite-tapped');
         }
 
       });
