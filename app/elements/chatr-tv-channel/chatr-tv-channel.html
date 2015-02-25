@@ -67,6 +67,10 @@
       .channel-info p {
         color: #607D8B;
       }
+
+      #favicon.fav {
+        color: tomato;
+      }
     </style>
 
     <a href"#" class="channel">
@@ -98,6 +102,7 @@
 
         favoriteTapped: function() {
           this.fire('favorite-tapped');
+          this.$.favicon.classList.toggle('fav');
         }
 
       });
