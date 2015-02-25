@@ -2,7 +2,7 @@
 <link rel="import" href="../../bower_components/firebase-list/firebase-list.html">
 <link rel="import" href="../chatr-tv-channel/chatr-tv-channel.html">
 
-<polymer-element name="chatr-tv-channels-list" attributes="channels" id="">
+<polymer-element name="chatr-tv-channels-list" attributes="channels">
 
   <template>
 
@@ -19,7 +19,7 @@
     <firebase-list id="base" childEvents location="https://chatr-polymer.firebaseio.com/channels" data="{{channels}}" keys="{{keys}}" limitToFirst="20"></firebase-list>
 
     <template repeat="{{key in keys}}">
-      <chatr-tv-channel listitem="{{key}}" name="{{channels[key].name}}" logo="{{channels[key].logo}}" country="{{channels[key].country.name}}" channel="{{channels[key].active}}" active="{{channels[key].active}}" on-tap="{{toggleActive}}"></chatr-tv-channel>
+      <chatr-tv-channel listitem="{{key}}" name="{{channels[key].name}}" logo="{{channels[key].logo}}" country="{{channels[key].country.name}}" channel="{{channels[key].active}}" active="{{channels[key].active}}" on-tap="{{toggleActive}}" on-favorite-tapped="{{handleFavorite}}"></chatr-tv-channel>
     </template>
 
   </template>
@@ -38,14 +38,24 @@
         toggleActive: function(event, detail, sender) {
           var channel = this.shadowRoot.querySelectorAll('chatr-tv-channel');
           for (var i=0; i<channel.length; i++) {
-            channel[i].classList.remove("active");
+            channel[i].classList.remove('active');
             channel[i].classList.add(i);
             this.channels[i].active = false;
           }
           sender.classList.add('active');
           this.channels[sender.classList[0]].active = true;
           this.fire('active-set');
-      }
+        },
+
+        handleFavorite: function(event, detail, sender) {
+          var channel = this.shadowRoot.querySelectorAll('chatr-tv-channel');
+          for (var i=0; i<channel.length; i++) {
+            if (channel[i].classList.contains('active')) {
+              this.channels[sender.classList[0]].favorite = !this.channels[sender.classList[0]].favorite;
+            }
+          }
+
+        }
 
       });
 
