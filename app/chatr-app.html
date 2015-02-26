@@ -156,7 +156,7 @@
                   </template>
                   <paper-item on-click="{{login}}" hidden?="{{user}}">Login</paper-item>
                   <paper-menu-button>
-                      <paper-icon-button icon="social:notifications" hidden?="{{!user}}"></paper-icon-button>
+                      <paper-icon-button icon="social:notifications" hidden?="{{!user}}" on-like-added="{{ringRing}}" on-dislike-added="{{ringRing}}"></paper-icon-button>
                       <paper-icon-button icon="settings-power" on-click="{{logout}}" hidden?="{{!user}}"></paper-icon-button>
                   </paper-menu-button>
               </div>
@@ -224,6 +224,10 @@
 
         onError: function(err) {
           console.error(err);
+        },
+
+        ringRing: function() {
+          console.log("Ring ring!");
         }
 
       });
