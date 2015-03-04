@@ -101,6 +101,30 @@
           text-decoration: none;
       }
 
+      paper-tabs {
+          font-size: 1em;
+          width: 20vw;
+      }
+
+      paper-tabs a {
+          color: #4E4766;
+          height: auto !important;
+          text-align: center;
+          text-decoration: none;
+      }
+
+      paper-tabs::shadow #selectionBar {
+          background-color: #4E4766
+      }
+
+      paper-tab:nth-of-type(1)::shadow #ink {
+          color: #00BFA5;
+      }
+
+      paper-tab:nth-of-type(2)::shadow #ink {
+          color: #B388FF;
+      }
+
       chatr-user::shadow chatr-user-name {
           font-size: 0.7em;
           color: #FFFFFF;
@@ -171,14 +195,10 @@
                   </template>
               </div>
               <div layout horizontal center>
-                  <core-selector selected="0">
-                      <paper-item>
-                          <a href="/#">Chat</a>
-                      </paper-item>
-                      <paper-item>
-                          <a href="/#/chatr-questions/">Questions</a>
-                      </paper-item>
-                  </core-selector>
+                  <paper-tabs selected="0" link>
+                      <paper-tab><a href="/#">Chat</a></paper-tab>
+                      <paper-tab><a href="/#/chatr-questions/">Questions</a></paper-tab>
+                  </paper-tabs>
               </div>
           </core-toolbar>
           <div class="content">
