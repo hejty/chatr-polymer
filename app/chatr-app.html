@@ -13,6 +13,7 @@
 <link rel="import" href="bower_components/paper-elements/paper-elements.html"/>
 <link rel="import" href="bower_components/pvc-globals/pvc-globals.html"/>
 <link rel="import" href="bower_components/app-router/app-router.html"/>
+<link rel="import" href="bower_components/voice-elements/dist/voice-player.html"/>
 
 <polymer-element name="chatr-app">
 
@@ -177,6 +178,7 @@
               <div layout horizontal center>
                   <template if="{{user}}">
                       <chatr-user user="{{user.github.displayName}}" avatar="{{user.github.cachedUserProfile.avatar_url}}"></chatr-user>
+                      <voice-player autoplay accent="es-ES" text="Ciao, {{user.github.displayName}}!"></voice-player>
                   </template>
                   <paper-item on-click="{{login}}" hidden?="{{user}}">Login</paper-item>
                   <paper-menu-button>

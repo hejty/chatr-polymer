@@ -15,7 +15,8 @@
     "pvc-globals": "Divshot/pvc-globals#~0.1.0",
     "app-router": "~2.4.0",
     "elapsed-time": "miztroh/elapsed-time#~0.0.6",
-    "firebase-list": "divshot/firebase-list#~0.1.1"
+    "firebase-list": "divshot/firebase-list#~0.1.1",
+    "voice-elements": "zenorocha/voice-elements#~0.2.0"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^2.0.0"
